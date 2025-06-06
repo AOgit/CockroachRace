@@ -16,7 +16,7 @@ public class CockroachRaceAppl {
 
 
         Random random = new Random();
-        int randomSleep = random.nextInt(4) + 1;
+        int randomSleep = random.nextInt(3) + 2;
         Cockroach.setLaps(laps);
         Cockroach.setSleep(randomSleep);
 
@@ -31,6 +31,6 @@ public class CockroachRaceAppl {
             threads[i].join();
         }
 
-        System.out.println("Winner is cockroach #" + Cockroach.getWinner());
+        System.out.printf("Congratulations to cockroach #%d (winner)\n", Cockroach.getWinner());
     }
 }
