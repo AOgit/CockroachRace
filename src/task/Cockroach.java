@@ -1,9 +1,10 @@
 package task;
 
+import java.util.Random;
+
 public class Cockroach implements Runnable {
     public int number;
     private static int winner;
-    private static int sleep;
     private static int laps;
 
     public Cockroach(int number) {
@@ -12,10 +13,12 @@ public class Cockroach implements Runnable {
 
     @Override
     public void run() {
+        Random random = new Random();
         for (int i = 1; i <= laps; i++) {
             System.out.printf("Cockroach #%d: %d lap\n", number, i);
+            int randomSleep = random.nextInt(3) + 2;
             try {
-                Thread.sleep(Cockroach.sleep);
+                Thread.sleep(randomSleep);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -29,10 +32,6 @@ public class Cockroach implements Runnable {
 
     public static int getWinner() {
         return winner;
-    }
-
-    public static void setSleep(int sleep) {
-        Cockroach.sleep = sleep;
     }
 
     public static void setLaps(int laps) {

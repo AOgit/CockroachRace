@@ -14,12 +14,7 @@ public class CockroachRaceAppl {
         int laps = scanner.nextInt();
         scanner.close();
 
-
-        Random random = new Random();
-        int randomSleep = random.nextInt(3) + 2;
         Cockroach.setLaps(laps);
-        Cockroach.setSleep(randomSleep);
-
         Thread[] threads = new Thread[quantity];
 
         for (int i = 0; i < quantity; i++) {
